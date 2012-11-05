@@ -1,5 +1,5 @@
-require "delayed_sunspot/version"
-
-module DelayedSunspot
-  # Your code goes here...
-end
+require 'sunspot'
+require 'delayed_sunspot/delayed_job/sunspot_job'
+require 'delayed_sunspot/sunspot/session_proxy/delayed_job_session_proxy'
+require 'delayed_sunspot/sunspot/configuration'
+require 'delayed_sunspot/version'
