@@ -1,6 +1,6 @@
 # DelayedSunspot [![endorse](http://api.coderwall.com/anthonator/endorsecount.png)](http://coderwall.com/anthonator)
 
-TODO: Write a gem description
+Adds support for indexing objects asynchronously using [Sunspot](https://github.com/sunspot/sunspot) and [Delayed Job](https://github.com/collectiveidea/delayed_job).
 
 ## Installation
 
