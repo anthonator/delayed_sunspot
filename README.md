@@ -2,6 +2,8 @@
 
 Adds support for indexing objects asynchronously using [Sunspot](https://github.com/sunspot/sunspot) and [Delayed Job](https://github.com/collectiveidea/delayed_job).
 
+[![Build Status](https://secure.travis-ci.org/anthonator/delayed_sunspot.png)](http://travis-ci.org/anthonator/delayed_sunspot)
+
 ## Installation
 
 Add this line to your application's Gemfile:
