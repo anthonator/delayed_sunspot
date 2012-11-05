@@ -12,11 +12,11 @@ module Sunspot
       end
 
       def batch(&block)
-        Delayed::Job.enqueue(DelayedSunspot::DelayedJob::SunspotJob.new(self, :batch, &block))
+        enqueue(:batch, &block)
       end
 
       def commit
-        Delayed::Job.enqueue(DelayedSunspot::DelayedJob::SunspotJob.new(self, :commit))
+        enqueue(:commit)
       end
 
       def commit_if_delete_dirty
@@ -28,7 +28,7 @@ module Sunspot
       end
 
       def index(*objects)
-        Delayed::Job.enqueue(DelayedSunspot::DelayedJob::SunspotJob.new(self, :index, *objects))
+        enqueue(:index, *objects)
       end
 
       def index!(*objects)
@@ -37,7 +37,7 @@ module Sunspot
       end
 
       def remove(*objects, &block)
-        Delayed::Job.enqueue(DelayedSunspot::DelayedJob::SunspotJob.new(self, :remove, *objects, &block))
+        enqueue(:remove, *objects, &block)
       end
 
       def remove!(*objects)
@@ -46,7 +46,7 @@ module Sunspot
       end
 
       def remove_all(*classes)
-        Delayed::Job.enqueue(DelayedSunspot::DelayedJob::SunspotJob.new(self, :remove_all, *classes))
+        enqueue(:remove_all, *classes)
       end
 
       def remove_all!(*classes)
@@ -55,12 +55,17 @@ module Sunspot
       end
 
       def remove_by_id(clazz, id)
-        Delayed::Job.enqueue(DelayedSunspot::DelayedJob::SunspotJob.new(self, :remove_by_id, clazz, id))
+        enqueue(:remove_by_id, clazz, id)
       end
 
       def remove_by_id!(clazz, id)
         remove_by_id(clazz, id)
         commit
+      end
+
+      private
+      def enqueue(method, *args, &block)
+        Delayed::Job.enqueue(DelayedSunspot::DelayedJob::SunspotJob.new(self, method, *args, &block))
       end
     end
   end
