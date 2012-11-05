@@ -18,7 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You will need to configure Sunspot to use delayed_sunspot's session proxy in order to push Sunspot commands through Delayed Job.
+
+```ruby
+Sunspot.session = Sunspot::SessionProxy::DelayedJobSessionProxy.new(Sunspot.session)
+```
+
+If you're using Rails put the above line of code in an initializer.
 
 ## Contributing
 
