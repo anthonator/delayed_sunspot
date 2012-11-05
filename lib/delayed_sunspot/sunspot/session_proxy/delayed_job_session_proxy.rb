@@ -4,7 +4,7 @@ module Sunspot
       attr_reader :session
 
       delegate :config, :delete_dirty?, :dirty?, :more_like_this, :new_more_like_this, :new_search,
-               :optimize, :reset!, :search, :setup,
+               :optimize, :search,
                :to => :session
 
       def initialize(session)
