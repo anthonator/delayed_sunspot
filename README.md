@@ -45,6 +45,21 @@ To find out more about autocommits [read the Solr documentation](http://wiki.apa
 
 If you've already configured Solr for autocommits you're good to go.
 
+## Asynchronous Commands
+
+batch  
+commit  
+commit_if_delete_dirty  
+commit_if_dirty  
+index  
+index!  
+remove  
+remove!  
+remove_all  
+remove_all!  
+remove_by_id  
+remove_by_id!  
+
 ## Contributing
 
 1. Fork it
