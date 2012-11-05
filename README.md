@@ -1,4 +1,4 @@
-# DelayedSunspot
+# DelayedSunspot [![endorse](http://api.coderwall.com/anthonator/endorsecount.png)](http://coderwall.com/anthonator)
 
 TODO: Write a gem description
 
