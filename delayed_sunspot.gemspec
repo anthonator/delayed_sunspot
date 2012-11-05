@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["anthony@sticksnleaves.com"]
   gem.description   = %q{Delayed Job support for Sunspot}
   gem.summary       = %q{Toss your Sunspot Solr commits into a background job.}
-  gem.homepage      = "https://github.com/anthonator/delayed_sunspot"
+  gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -19,5 +19,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'sunspot'
 
+  gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'sunspot_matchers'
 end
