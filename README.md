@@ -28,6 +28,23 @@ Sunspot.session = Sunspot::SessionProxy::DelayedJobSessionProxy.new(Sunspot.sess
 
 If you're using Rails put the above line of code in an initializer.
 
+## ZOMG! WHY AREN'T MY OBJECTS BEING INDEXED?!
+
+If you're using the sunspot_rails gem you might have noticed that the objects you've been indexing aren't coming back in your search results. This is due to the sunspot_rails gem being configured to autocommit indexes through a controller hook. This functionality doesn't exist when indexing outside of a controller.
+
+You can enable autocommit by putting the following code in your solrconfig.xml under the updateHandler section:
+
+```xml
+<autoCommit>
+    <maxDocs>10000</maxDocs> <!-- maximum uncommited docs before autocommit triggered -->
+    <maxTime>15000</maxTime> <!-- maximum time (in MS) after adding a doc before an autocommit is triggered -->
+</autoCommit>
+```
+
+To find out more about autocommits [read the Solr documentation](http://wiki.apache.org/solr/SolrConfigXml#Update_Handler_Section)
+
+If you've already configured Solr for autocommits you're good to go.
+
 ## Contributing
 
 1. Fork it
